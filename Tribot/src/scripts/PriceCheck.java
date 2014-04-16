@@ -117,8 +117,11 @@ public class PriceCheck extends Script implements Painting {
 			System.out.println("Bank is open, doing that too");
 			RSItem[] bank = Banking.getAll();
 			for (RSItem item : bank) {
+				if(item == null)
+					continue;
 				String name = item.getDefinition().getName();
 				if (item != null && name != null) {
+					
 					// First check if the item is in the list, and if it is
 					int price = 0;
 					if (!ids.contains(item.getID())) {
