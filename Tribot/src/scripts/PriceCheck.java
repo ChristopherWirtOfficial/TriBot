@@ -119,7 +119,10 @@ public class PriceCheck extends Script implements Painting {
 			for (RSItem item : bank) {
 				if(item == null)
 					continue;
-				String name = item.getDefinition().getName();
+				RSItemDefinition def = item.getDefinition();
+				if(def == null)
+					continue;
+				String name  = def.getName();
 				if (item != null && name != null) {
 					
 					// First check if the item is in the list, and if it is
